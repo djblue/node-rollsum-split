@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var es = require('event-stream');
+var crypto = require('crypto');
+var split = require('../');
+
+process.stdin.pipe(split())
+  .pipe(es.through(function (data) {
+    this.emit('data', crypto.createHash('sha1').update(data).digest('hex') + '\n');
+  }))
+  .pipe(process.stdout);
