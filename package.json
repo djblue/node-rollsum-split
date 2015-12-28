@@ -1,6 +1,6 @@
 {
   "name": "rollsum-split",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Split a stream based on its contents using rollsum boundaries.",
   "main": "index.js",
   "bin": {
