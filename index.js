@@ -16,14 +16,18 @@ var split = function () {
       if (over !== null) {
         self.emit('data', Buffer.concat([over, data.slice(last, i)]));
         over = null;
-      } else {
+      } else if (i !== last) {
         self.emit('data', data.slice(last, i));
       }
 
       last = i;
     });
 
-    over = data.slice(last);
+    if (over !== null) {
+      over = Buffer.concat([over, data.slice(last)]);
+    } else {
+      over = data.slice(last);
+    }
   };
 
   var end = function () {
