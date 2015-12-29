@@ -6,6 +6,10 @@
   "bin": {
     "rollsum-split": "./bin/rollsum-split"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djblue/node-rollsum-split"
+  },
   "directories": {
     "test": "test"
   },
